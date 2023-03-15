@@ -21,6 +21,7 @@ const createProducts = async (product:Products1): Promise<Products2> => {
     amount,
   };
 };
+
 const productsModel = {
   getAll,
   createProducts,

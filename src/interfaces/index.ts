@@ -1,14 +1,14 @@
-/* export interface IUsers {
-  userName: string;
-  vocation: string;
-  level: string;
-  password: string;
+export interface IUsers {
+  id: number;
+  'username': string;
+  'vocation': string;
+  'level': number;
+  'password': string;
 }
 
-export interface Orders {
-  id: number;
-}
- */
+export type TUsers1 = Omit <IUsers, 'id'>;
+export type TUsers2 = Omit <IUsers, 'password'>;
+
 export interface IProducts {
   'id': number;
   'name': string;
