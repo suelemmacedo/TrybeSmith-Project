@@ -64,6 +64,10 @@
   outline-offset: 3px;
 }
 
+.product-grid[hidden] {
+  display: none;
+}
+
 /* ========================================
    FILTROS POR CATEGORIA
 ======================================== */
