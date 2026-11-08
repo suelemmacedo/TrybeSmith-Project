@@ -1,4 +1,12 @@
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #f6f1e7;
+  border-bottom: 1px solid #d8c6a8;
+  padding: 24px 6%;
+}
+n .site-header {
   background-color: #f6f1e7;
   border-bottom: 1px solid #d8c6a8;
   padding: 24px 6%;

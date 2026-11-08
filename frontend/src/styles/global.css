@@ -35,3 +35,8 @@ p {
   color: #493729;
   line-height: 1.6;
 }
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
