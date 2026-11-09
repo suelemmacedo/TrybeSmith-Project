@@ -15,6 +15,8 @@ function ProductGrid() {
     'Armas',
     'Armaduras',
     'Defesa',
+    'Artefatos',
+    'Acessórios',
   ];
 
   // Filtra os produtos por categoria e nome
@@ -104,6 +106,7 @@ function ProductGrid() {
         ) : (
           filteredProducts.map((product) => (
             <ProductCard
+              id={product.id}
               key={product.id}
               name={product.name}
               category={product.category}

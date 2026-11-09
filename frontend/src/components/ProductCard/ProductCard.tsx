@@ -1,9 +1,11 @@
+
 import type { Product } from '../../types/Product';
 import './ProductCard.css';
 
-type ProductCardProps = Omit<Product, 'id'>;
+type ProductCardProps = Product;
 
 function ProductCard({
+  id,
   name,
   category,
   price,
@@ -30,6 +32,14 @@ function ProductCard({
             currency: 'BRL',
           })}
         </p>
+
+        <button
+          type="button"
+          className="add-to-cart"
+          onClick={() => console.log('Produto selecionado:', id)}
+        >
+          Adicionar ao carrinho
+        </button>
       </div>
     </article>
   );
