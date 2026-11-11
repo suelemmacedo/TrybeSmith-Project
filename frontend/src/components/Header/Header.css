@@ -1,0 +1,61 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #f6f1e7;
+  border-bottom: 1px solid #d8c6a8;
+  padding: 24px 6%;
+}
+n .site-header {
+  background-color: #f6f1e7;
+  border-bottom: 1px solid #d8c6a8;
+  padding: 24px 6%;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  color: #493729;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand-symbol {
+  color: #92724f;
+  margin-right: 10px;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  color: #493729;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.main-nav a:hover {
+  color: #92724f;
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

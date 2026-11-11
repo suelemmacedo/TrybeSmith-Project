@@ -1,0 +1,244 @@
+/* ========================================
+   SEÇÃO DE PRODUTOS
+======================================== */
+
+.product-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+/* ========================================
+   CABEÇALHO DA SEÇÃO
+======================================== */
+
+.product-section-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.product-section-label {
+  color: #92724f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.product-section-header h2 {
+  margin: 16px 0;
+  color: #493729;
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+.product-section-header p {
+  color: #675747;
+  line-height: 1.7;
+}
+
+/* ========================================
+   BOTÃO MOSTRAR / OCULTAR PRODUTOS
+======================================== */
+
+.toggle-products {
+  display: block;
+  margin: 0 auto 24px;
+  padding: 10px 20px;
+  border: 1px solid #92724f;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #493729;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-products:hover {
+  background-color: #f0e5d6;
+}
+
+.toggle-products:focus-visible {
+  outline: 2px solid #b8860b;
+  outline-offset: 3px;
+}
+
+.product-grid[hidden] {
+  display: none;
+}
+
+/* ========================================
+   FILTROS POR CATEGORIA
+======================================== */
+
+.product-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.product-filters button {
+  padding: 10px 20px;
+  border: 1px solid #cbbba8;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #493729;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.product-filters button:hover {
+  background-color: #f0e5d6;
+}
+
+.product-filters button.active {
+  background-color: #b8860b;
+  color: #ffffff;
+  border-color: #b8860b;
+}
+
+.product-filters button.active:hover {
+  background-color: #9f7309;
+}
+
+.product-filters button:focus-visible {
+  outline: 2px solid #b8860b;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   CAMPO DE PESQUISA
+======================================== */
+
+.product-search {
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+
+.product-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border: 1px solid #cbbba8;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #493729;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+.product-search input::placeholder {
+  color: #8b8175;
+}
+
+.product-search input:focus {
+  outline: 2px solid #b8860b;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   CONTADOR DE PRODUTOS
+======================================== */
+
+.product-count {
+  margin: 0 0 24px;
+  color: #675747;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ========================================
+   GRID DE PRODUTOS
+======================================== */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* ========================================
+   MENSAGEM SEM RESULTADOS
+======================================== */
+
+.no-products {
+  grid-column: 1 / -1;
+  padding: 48px 20px;
+  color: #92724f;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVIDADE - TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-section {
+    padding: 56px 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVIDADE - CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+  .product-section {
+    padding: 40px 16px;
+  }
+
+  .product-section-header {
+    margin-bottom: 24px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-filters {
+    gap: 8px;
+  }
+
+  .product-filters button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .product-search {
+    max-width: 100%;
+  }
+
+  .toggle-products {
+    margin-bottom: 20px;
+  }
+
+  .no-products {
+    padding: 32px 12px;
+  }
+}
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle-products,
+  .product-filters button,
+  .product-search input {
+    transition: none;
+  }
+}
