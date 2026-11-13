@@ -1,6 +1,18 @@
+import { useCart } from '../../context/useCart';
 import './Header.css';
 
-function Header() {
+type HeaderProps = {
+  onOpenCart: () => void;
+};
+
+function Header({ onOpenCart }: HeaderProps) {
+  const { cartItems } = useCart();
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <header className="site-header">
       <div className="header-container">
@@ -14,9 +26,26 @@ function Header() {
           <a href="#produtos">Produtos</a>
           <a href="#sobre">Sobre</a>
         </nav>
+
+        <button
+          type="button"
+          className="header-cart"
+          onClick={onOpenCart}
+          aria-label={`Abrir carrinho com ${totalItems} itens`}
+        >
+          <span className="cart-icon" aria-hidden="true">
+            🛒
+          </span>
+
+          <span className="cart-count">
+            {totalItems}
+          </span>
+        </button>
       </div>
     </header>
   );
 }
 
 export default Header;
+
+

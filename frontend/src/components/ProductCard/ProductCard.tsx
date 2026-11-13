@@ -1,5 +1,6 @@
-
+import { useEffect, useState } from 'react';
 import type { Product } from '../../types/Product';
+import { useCart } from '../../context/useCart';
 import './ProductCard.css';
 
 type ProductCardProps = Product;
@@ -11,6 +12,35 @@ function ProductCard({
   price,
   image,
 }: ProductCardProps) {
+  const { addToCart } = useCart();
+
+  const [isAdded, setIsAdded] = useState(false);
+
+  const product: Product = {
+    id,
+    name,
+    category,
+    price,
+    image,
+  };
+
+  function handleAddToCart() {
+    addToCart(product);
+    setIsAdded(true);
+  }
+
+  useEffect(() => {
+    if (!isAdded) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
+
+    return () => window.clearTimeout(timeout);
+  }, [isAdded]);
+
   return (
     <article className="product-card">
       <img
@@ -35,10 +65,36 @@ function ProductCard({
 
         <button
           type="button"
-          className="add-to-cart"
-          onClick={() => console.log('Produto selecionado:', id)}
+          className={`product-add-button ${isAdded ? 'added' : ''}`}
+          onClick={handleAddToCart}
         >
-          Adicionar ao carrinho
+          {isAdded ? (
+            <>
+              <span aria-hidden="true">✓</span>
+              <span>Adicionado!</span>
+            </>
+          ) : (
+            <>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path d="M2 2h2l2.4 11.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 6H5" />
+              </svg>
+
+              <span>Adicionar ao carrinho</span>
+            </>
+          )}
         </button>
       </div>
     </article>
